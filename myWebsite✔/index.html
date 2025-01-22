@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">Porfolio</div>
+            <ul class="nav-links">
+                <li class="giveMeSound"><a href="#">Home</a></li>
+                <li class="giveMeSound"><a href="#">Contact</a></li>
+                <li class="giveMeSound"><a href="#">About</a></li>
+                <li class="giveMeSound"><a href="#">Login</a></li>
+            </ul>
+            <i  class="ri-menu-line" onclick="toggle_menu()"></i>
+        </nav>
+        <hr>
+        <div id="dropdown_menu" class="dropdown_menu_close">
+            <li class="giveMeSound"><a href="#">Home</a></li>
+            <li class="giveMeSound"><a href="#">Contact</a></li>
+            <li class="giveMeSound"><a href="#">About</a></li>
+            <li class="giveMeSound"><a href="#">Login</a></li>
+        </div>
+    </header>
+    <main>
+        <section class="first-section">
+            <div class="first-section-left">
+                <h1>I am <span class="aryan">Aryan</span></h1>
+                <h1>I am a passionate</h1>
+                <h1><span id="typing"></span></h1>
+
+            </div>
+            <div class="first-section-right">
+                <img src="images/intro.jpg" alt="spider">
+            </div>
+        </section>
+    </main>
+    <footer>
+
+        <!-- js for typing animation -->
+    </footer>
+
+    <!-- hidden click sound audio tag -->
+    <audio src="pop.mp3" id="clickSound"></audio>
+
+
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script>
+        var typed = new Typed('#typing', {
+            strings: ['Web Developer', 'Pentester', 'Python Programmer'],
+            typeSpeed: 40,
+            loop:true
+        })
+
+        <!-- toggle menu bar -->
+        function toggle_menu(){
+if(document.getElementById('dropdown_menu').className=="dropdown_menu_close"){
+	document.getElementById('dropdown_menu').className="dropdown_menu_open";
+    document.getElementsByClassName('ri-menu-line')[0].className='ri-close-fill';
+    document.getElementsByClassName('first-section-left')[0].style.opacity='0';
+    }
+    else{
+    document.getElementById('dropdown_menu').className="dropdown_menu_close";
+    document.getElementsByClassName('ri-close-fill')[0].className="ri-menu-line";
+    document.getElementsByClassName('first-section-left')[0].style.opacity='1';
+
+
+    }
+    }
+
+    // sound producer on click
+    let navLinks=document.querySelectorAll('.giveMeSound');
+    navLinks.forEach((navLink)=>{
+        navLink.addEventListener('click',function(){
+            document.getElementById('clickSound').playbackRate=2;
+            document.getElementById('clickSound').play();
+        })
+    })
+    </script>
+</body>
+
+</html>

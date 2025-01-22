@@ -1,0 +1,381 @@
+/* Default Configuration */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  text-decoration: none;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border: none;
+  scroll-behavior: smooth;
+}
+
+:root {
+  --text-color: white;
+  --bg-color: rgb(0, 0, 0);
+  --second-bg-color:rgb(8, 8, 8);
+  --main-color: aqua;
+}
+
+::-webkit-scrollbar{
+    width: .7rem;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: var(--main-color);
+}
+
+::-webkit-scrollbar-track{
+    background-color: var(--bg-color);
+}
+html {
+  font-size: 10px;
+}
+body {
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    width: 100%;
+    overflow-x: hidden;
+}
+
+
+/* Header codes */
+header {
+  position: fixed;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 2rem;
+  backdrop-filter: blur(0.6rem);
+  z-index: 1000;
+  height: 6rem;
+}
+
+.logo {
+  font-size: 2.4rem;
+  font-weight: bold;
+  color: var(--text-color);
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+}
+
+#menuIcon{
+    font-size: 2.5rem;
+    display: none;
+}
+
+nav{
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+nav >li{
+    list-style: none;
+}
+nav a {
+  color: var(--text-color);
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s;
+  font-size: 1.5rem;
+}
+
+header >nav a:hover,
+header >nav a.active {
+  color: var(--main-color);
+  border-bottom: 2px solid var(--main-color);
+  transition: slide 0.3s;
+}
+
+
+/* Main codes */
+
+section{
+    min-height: 100vh;
+    padding: 10rem 10%;
+}
+
+.socialIcons{
+    margin-top: 2rem;
+}
+.socialIcons >a{
+    display:inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid aqua;
+    border-radius: 50%;
+    margin-right: 1rem;
+    font-size: 2rem;
+}
+
+.socialIcons a{
+    color: var(--main-color);
+    text-decoration: none;
+    padding: 0.4rem;
+
+}
+.socialIcons > a:hover{
+    color: var(--text-color);
+    background-color: var(--main-color);
+    box-shadow: 0 0 2.5rem var(--main-color);
+    transform: scale(1.3)translateY(-5px);
+    transition: transform .3s ease;
+}
+.btnGroup{
+    margin-top: 1rem;
+}
+
+
+.sectionHeading{
+    font-size: 4rem;
+    text-align: center;
+    margin-bottom: 6rem;
+}
+
+/* caraousel  */
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+  overflow-y: hidden;
+  height: 80vh;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.activeDot, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+/* Smoke and Flame Sensor Data Section */
+
+.chart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+}
+
+
+.chart p{
+    font-size: 2rem;
+}
+
+
+iframe {
+    display: block;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    width: 45rem;
+    height: 26rem;
+}
+
+
+
+/* Team CSS */
+.team{
+    background-color: var(--second-bg-color);
+}
+.teamCardsContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+    
+}
+
+.teamCard{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--bg-color);
+    border: 1px solid grey;
+    border-radius: 1rem;
+    gap: 1.5rem;
+    min-height: 40rem;
+    transition: 0.3s ease-in-out;
+    padding: 0 3rem;
+    width: 30rem;
+
+
+
+}
+
+.teamCard:hover{
+    box-shadow: 0 0 2.5rem var(--main-color);
+    cursor: pointer;
+    border: 1px solid var(--main-color);
+    transform: scale(1.03) translateY(-1rem);
+}
+
+.memberImage{
+    width: 12rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    box-shadow: 0 0 1.5rem var(--main-color);
+    overflow: hidden;
+}
+
+.memberImage > img{
+    width: 100%;
+
+}
+
+.memberName{
+    font-size: 2.3rem;
+}
+
+.memberRole{
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-style:italic;
+}
+
+/* Contact me css */
+.contact >form{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 4rem;
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+}
+
+
+form input,form textarea{
+   padding: 2rem;
+   border-radius: 1rem;
+   background-color: transparent;
+   border: 1px solid var(--main-color);
+   color:var(--text-color);
+   width: 100%;
+}
+
+form >input:focus,form > textarea:focus{
+    box-shadow: 0 0 2.5rem var(--main-color);
+    transform: scale(1.05);
+    transition: all .3s ease-in-out;
+}
+
+
+form >textarea{
+    height: 20rem;
+    grid-column: 1 / 3;
+}
+
+form >button{
+    width: 10rem;
+    margin: auto;
+    cursor: pointer;
+}
+
+/* Footer css */
+footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    flex-wrap: wrap;
+}
+footer > nav >ul{
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    gap: 0;
+}
+
+.copyright{
+    font-size: 1.2rem;
+}

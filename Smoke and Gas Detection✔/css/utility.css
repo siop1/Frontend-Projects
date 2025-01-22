@@ -1,0 +1,29 @@
+.glowText {
+  /* color: var(--main-color); */
+  text-shadow: 0 0 2.5rem var(--main-color);
+}
+
+.btn {
+  text-decoration: none;
+  color: var(--text-color);
+  border: 1px solid aqua;
+  border-radius: 3rem;
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  padding: 0.5rem 2.5rem;
+  color: var(--main-color);
+}
+
+.glowBtn {
+  background-color: var(--main-color);
+  box-shadow: 0 0 1rem var(--main-color);
+  color: black;
+}
+
+.btn:hover {
+  background-color: var(--main-color);
+  color: black;
+  box-shadow: 0 0 1.5rem var(--main-color);
+  transform: scale(1.1);
+  transition: transform 0.3s ease-in-out;
+}

@@ -1,0 +1,71 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html,body{
+    background-color: rgb(25, 2, 46);
+    width: 100%;
+}
+
+#main{
+    margin: auto;
+    margin-top: 10px;
+    width: 30%;
+    min-height: 80vh;
+    background-color: aquamarine;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#todoMaker{
+    width: 80%;
+    margin: auto;
+    margin-top: 5px;
+    padding: 5px;
+}
+
+#clearAllBtn{
+    padding: 7px;
+    border-radius: 5px;
+    background-color: rgb(245, 100, 10);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight:bold;
+
+}
+#clearAllBtn:hover{
+    background-color: rgb(139, 70, 9);
+    color: white;
+
+}
+
+.todoListItems{
+    background-color: antiquewhite;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+    margin-top: 4px;
+    min-height: 30px;
+
+}
+
+.todoListItemsTask{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+}
+.todoListItemsTask > h4{
+    word-break: break-all;
+}
+
+.todoListItemsDelete{
+    margin-right: 10px;
+    color: rgb(173, 2, 2);
+    cursor: pointer;
+}
+

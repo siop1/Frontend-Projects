@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body,
+html {
+    font-size: 10px;
+    box-sizing: border-box;
+    /* font-family: monospace; */
+    background-color: grey;
+    color: white;
+
+    
+}
+
+.landing-page{
+    color: white;
+    /* width: 100vw; */
+    height: 100vh;
+    /* background-color: aquamarine; */
+    background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0, 0, 0, 0.7)),url("images/landing-bg-laptop.jpg");
+    background-position: center;
+    /* position: relative; */
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: blue; */
+    height: 8rem;
+    margin: 0 14rem;
+}
+nav > svg{
+    width:15rem;
+}
+nav > button,.landing-page-center div > button{
+    background-color: #e50914;
+    border: none;
+    color: white;
+    border-radius: 0.3rem;
+    padding: 0.8rem 1.8rem;
+    font-weight: bold;
+    cursor: pointer;
+
+}
+.landing-page-center{
+    /* background-color: aqua; */
+    width: 70%;
+    margin: 10rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.landing-page-center > h1{
+    font-size: 4rem;
+}
+.landing-page-center > #p1{
+    font-size: 2rem;
+}
+.landing-page-center > #p2{
+    font-size: 1.6rem;
+}
+.landing-page-center div > input{
+    padding: 1.5rem;
+    width: 30rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: 1px solid grey;
+    border-radius: 3px;
+}
+.landing-page-center div > input:focus{
+    outline: 2px solid white;
+    outline-offset: 2px;
+    
+}
+.landing-page-center > div > button{
+    padding: 1rem 2rem;
+    font-size: 2rem;
+    margin-left: 1rem;
+
+
+}
+
+
+section{
+    height: 80vh;
+    background-color: black;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.media{
+    position: relative;
+}
+
+.media > img{
+    position: absolute;
+    width: 20%;
+
+}
+
+.media > video{
+    width: 20%;
+}

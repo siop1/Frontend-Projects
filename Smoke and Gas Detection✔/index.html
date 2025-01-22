@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smoke and Smoke Sensor Data</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/utility.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/notification.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script defer src="script.js"></script>
+</head>
+
+<body>
+    <header>
+        <a href="#home" class="logo"><span class="glowText">AKN</span> Tech</a>
+        <i class="ri-menu-line" id="menuIcon"></i>
+        <nav id="navBar" class="hideTopNav">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#data">Data</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </nav>
+    </header>
+
+    <main>
+
+
+        <section id="home">
+            <div class="slideshow-container">
+
+                <div class="mySlides fade">
+                    <div class="numbertext">1 / 3</div>
+                    <img src="images/5.jpg" style="width:100%">
+                    <div class="text">Fire and Gas Detector</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext">2 / 3</div>
+                    <img src="images/6.jpg" style="width:100%">
+                    <div class="text">Members</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext">3 / 3</div>
+                    <img src="images/3.jpg" style="width:100%">
+                    <div class="text">Working</div>
+                </div>
+
+                <a class="prev" onclick="plusSlides(-1)">❮</a>
+                <a class="next" onclick="plusSlides(1)">❯</a>
+
+            </div>
+            <br>
+
+            <div style="text-align:center">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+        </section>
+        <section class="data" id="data">
+            <h1 class="sectionHeading">Sensor Data </h1>
+            <div class="chart">
+                <div class="chart1">
+                    <iframe src="https://thingspeak.com/channels/2705751/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&title=Gas&type=line&xaxis=time&yaxis=LEVEL"></iframe>
+                    <p>Gas Level: <span id="gasLevel">Loading...</span></p>
+                </div>
+                <div class="chart2">
+                    <iframe src="https://thingspeak.com/channels/2705751/charts/2?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&title=Fire&type=line&xaxis=time"></iframe>
+                    <p>Smoke Level: <span id="smokeLevel">Loading...</span></p>
+                </div>
+
+                <div class="gasDanger">
+                    <iframe src="https://thingspeak.com/channels/2705751/widgets/949069"></iframe>
+                    <p>Gas Status</p>
+
+                </div>
+
+                <div class="SmokeDanger">
+                    <iframe src="https://thingspeak.com/channels/2705751/widgets/949070"></iframe>
+                    <p>Smoke Status</p>
+
+                </div>
+            </div>
+
+        </section>
+        <section class="team" id="team">
+            <h1 class="sectionHeading">Our Team</h1>
+            <div class="teamCardsContainer">
+                <div class="teamCard">
+                    <div class="memberImage">
+                        <img src="images/aryan.jpg">
+                    </div>
+                    <h2 class="memberName">Aryan Khatri</h2>
+                    <div class="clientRating"></div>
+                    <p class="memberRole">"Aryan creates the IoT software, writes hardware codes for the product, and integrates various systems to ensure seamless operation of the fire and smoke detection system."</p>
+                </div>
+
+                <div class="teamCard">
+                    <div class="memberImage">
+                        <img src="images/kusum.jpg">
+                    </div>
+                    <h2 class="memberName">Kushum Kafle</h2>
+                    <div class="clientRating"></div>
+                    <p class="memberRole">"Kushum is an IoT expert and designs the final product, transforming concepts into a functional system that effectively responds to fire alerts."</p>
+                </div>
+
+                <div class="teamCard">
+                    <div class="memberImage">
+                        <img src="images/nischal.jpg">
+                    </div>
+                    <h2 class="memberName">Nischal Upadhayaya</h2>
+                    <div class="clientRating"></div>
+                    <p class="memberRole">"Nischal is our IoT engineer expert, specializing in integrating various sensors and devices to ensure real-time monitoring and data collection."</p>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="contact" id="contact">
+            <h1 class="sectionHeading">Contact <span class="glowText">Us</span></h1>
+
+
+            <form action="https://api.web3forms.com/submit" method="POST">
+
+                <!-- Replace with your Access Key -->
+                <input type="hidden" name="access_key" value="fcce05fc-0974-46d7-8fc5-a042ef60a69b">
+
+                <!-- Form Inputs. Each input must have a name="" attribute -->
+                <input type="text" placeholder="Full Name" name="fullName" required>
+                <input type="email" placeholder="Email" name="email">
+                <input type="number" placeholder="Phone Number: 977-1234567891" name="phoneNumber" required>
+                <input type="text" placeholder="Subject" name="subject" required>
+                <textarea placeholder="Your Message" name="message" required></textarea>
+
+
+                <!-- Honeypot Spam Protection -->
+                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                <!-- Custom Confirmation / Success Page -->
+                <!-- <input type="hidden" name="redirect" value="https://mywebsite.com/thanks.html"> -->
+
+                <button type="submit" class="btn glowBtn" id="submitBtn">Submit</button>
+
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="socialIcons">
+            <a href="#"><i class="ri-facebook-fill"></i></a>
+            <a href="#"><i class="ri-github-fill"></i></a>
+            <a href="#"><i class="ri-twitter-fill"></i></a>
+            <a href="#"><i class="ri-linkedin-fill"></i></a>
+        </div>
+        <nav>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#data">Data</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </nav>
+        <p class="copyright">&copy;2024 AKN Tech | All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>

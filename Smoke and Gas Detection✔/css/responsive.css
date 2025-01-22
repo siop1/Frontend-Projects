@@ -1,0 +1,71 @@
+/* Responsive design for mobile devices*/
+@media only screen and (max-width: 550px) {
+  /* Smoke and Flame Sensor Data Section */
+  .chart{
+    flex-direction: column;
+  }
+
+  iframe {
+    width: 100%;
+    height: 26rem;
+}
+  
+}
+
+@media only screen and (max-width: 700px) {
+  .teamCardsContainer {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1rem;
+  }
+
+  .contact > form {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  form > textarea {
+    height: 20rem;
+    grid-column: 1 / 2;
+  }
+  
+}
+
+@media screen and (max-width: 800px) {
+  #menuIcon {
+    display: block;
+    cursor: pointer;
+  }
+
+  header > nav {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: -100%;
+    right: 0;
+    top: 6rem;
+    text-align: center;
+    backdrop-filter: blur(0.6rem);
+    padding: 6rem 0 2rem;
+    gap: 3rem;
+  }
+  .showTopNav {
+    visibility: show;
+    background: rgba(0, 0, 0, 0.9);
+    left: 0;
+    transition: left 0.5s ease;
+  }
+
+  .hideTopNav {
+    visibility: hidden;
+    left: -100%;
+    transition: left 0.5s ease-in;
+  }
+
+  #home{
+    height: 40vh;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .slideshow-container {
+    max-height: 40vh;
+  }
+
+}

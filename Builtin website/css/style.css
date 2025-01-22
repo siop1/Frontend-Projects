@@ -1,0 +1,84 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html,body{
+    color: black;
+    box-sizing: border-box;
+}
+
+.banner{
+    background-color: #04003f;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: white;
+    height: 80px;
+
+}
+.banner_right a{
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+
+}
+.banner_right a:hover{
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-decoration-color: #00b9fe;
+
+}
+.banner_right button{
+    background-color: #2b3866;
+    color: white;
+    border: none;
+    font-weight: 700;
+    letter-spacing: .5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    padding: 11px 16px ;
+    border-radius: 8px;
+    cursor: pointer;
+
+}
+.banner_right button:hover{
+    background-color: #374886;
+}
+.banner_right div{
+    display: flex;
+    height: 80px;
+    width: 80px;
+    align-items: center;
+    justify-content: center;
+}
+.banner_right i{
+    font-size: 30px;
+    
+    
+    
+}
+.banner_right div:hover{
+    cursor: pointer;
+    background-color: #374886;
+
+}
+.banner_right span{
+    color:#00b9fe;
+    font-weight: bolder;
+}
+.banner_right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1vw;
+}
+.banner  img{
+    width: 138px;
+    height: 49px;
+    cursor: pointer;
+    
+}
