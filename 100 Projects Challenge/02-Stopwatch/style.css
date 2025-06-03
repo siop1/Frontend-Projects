@@ -1,0 +1,68 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 20rem;
+}
+
+#timer-countdown{
+    font-size: 5rem;
+    color: brown;
+}
+
+.btns-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+main button{
+    padding:8px 10px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+}
+
+main button:hover{
+    opacity: 0.8;
+    cursor: pointer;
+}
+#start-btn{
+    background-color: green;
+}
+
+#stop-btn,#lap-clear-btn{
+    background-color: red;
+}
+
+#reset-btn{
+    background-color: grey;
+}
+#lap-btn{
+    background-color: orange;
+}
+
+#lap-container{
+    position: sticky;
+    left:0;
+    width: 20rem;
+    height: 10rem;
+    overflow-y: scroll;
+}
+
+.lap-title{
+    text-align: center;
+}

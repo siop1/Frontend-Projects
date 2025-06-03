@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.btns-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+#timer-countdown{
+    text-align: center;
+    font-size: 5rem;
+}
+
+.btns-container > button{
+    width: 4rem;
+    height:2rem;
+    color:white;
+    border: none;
+    border-radius: 5px;
+}
+
+.btns-container > button:hover{
+    cursor: pointer;
+    opacity: 0.8;
+}
+#start-btn{
+    background-color: green;
+}
+
+#stop-btn{
+    background-color: red;
+}
+
+#reset-btn{
+    background-color: grey;
+}
