@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Group Marks Tracker</title>
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --secondary: #f59e0b;
+      --background: #f3f4f6;
+      --white: #ffffff;
+      --danger: #dc2626;
+      --success: #10b981;
+      --warning: #f97316;
+      --gray: #e5e7eb;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      padding: 2rem;
+      background: var(--background);
+      margin: 0;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      color: var(--primary);
+    }
+
+    #groupForm,
+    #timerControls {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    #groupInput {
+      padding: 0.6rem;
+      font-size: 1.1rem;
+      border: 2px solid var(--primary);
+      border-radius: 8px;
+      width: 250px;
+    }
+
+    button {
+      padding: 0.6rem 1.2rem;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
+      border-radius: 8px;
+      background-color: var(--primary);
+      color: var(--white);
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #4338ca;
+    }
+
+    #groupContainer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .group {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 1.5rem;
+      width: 15%;
+      min-width: 200px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+      position: relative;
+      text-align: center;
+    }
+
+    .group h2 {
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .group p {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: #111827;
+    }
+
+    .group .add-btn {
+      background-color: var(--success);
+    }
+
+    .group .add-btn:hover {
+      background-color: #059669;
+    }
+
+    .group .reduce-btn {
+      background-color: var(--danger);
+    }
+
+    .group .reduce-btn:hover {
+      background-color: #b91c1c;
+    }
+
+    .delete-btn {
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      background: var(--gray);
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--danger);
+      border-radius: 4px;
+      padding: 0.2rem 0.5rem;
+    }
+
+    .king {
+      position: absolute;
+      top: -24px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 2rem;
+    }
+
+    .timer {
+      text-align: center;
+      font-size: 2rem;
+      margin: 1rem auto;
+      font-weight: bold;
+      color: var(--success);
+    }
+
+    .timer.red {
+      color: var(--danger);
+    }
+
+    #notification {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      display: none;
+      z-index: 999;
+      transition: background-color 0.3s;
+    }
+
+    #notification.success {
+      background-color: var(--success);
+    }
+
+    #notification.danger {
+      background-color: var(--danger);
+    }
+  </style>
+</head>
+<body>
+  <h1>Group Marks Tracker</h1>
+
+  <div id="groupForm">
+    <input
+      type="text"
+      id="groupInput"
+      placeholder="Enter Group Name (e.g., Group A)"
+    />
+    <button onclick="addGroup()">Add Group</button>
+  </div>
+
+  <div id="timerControls">
+    <button onclick="startTimer(45)">Start 45s Timer</button>
+    <button onclick="startTimer(30)">Start 30s Timer</button>
+    <button onclick="resetTimer()">Reset Timer</button>
+    <div id="timerDisplay" class="timer">00</div>
+  </div>
+
+  <div id="groupContainer"></div>
+
+  <div id="notification"></div>
+
+  <script>
+    let groups = JSON.parse(localStorage.getItem("groups")) || {};
+    let timerInterval;
+
+    function showNotification(message, type = "success") {
+      const notification = document.getElementById("notification");
+      notification.textContent = message;
+      notification.className = ""; // clear classes
+      notification.classList.add(type);
+      notification.style.display = "block";
+      setTimeout(() => {
+        notification.style.display = "none";
+      }, 2000);
+    }
+
+    function saveToLocalStorage() {
+      localStorage.setItem("groups", JSON.stringify(groups));
+    }
+
+    function addGroup() {
+      const input = document.getElementById("groupInput");
+      const name = input.value.trim();
+      if (!name) return alert("Please enter group name");
+      if (groups[name]) return alert("Group already exists");
+      groups[name] = 0;
+      saveToLocalStorage();
+      input.value = "";
+      renderGroups();
+    }
+
+    function increaseMarks(groupName) {
+      groups[groupName]++;
+      saveToLocalStorage();
+      renderGroups();
+      showNotification(`${groupName} marks increased`, "success");
+    }
+
+    function decreaseMarks(groupName) {
+      if (groups[groupName] > 0) {
+        groups[groupName]--;
+        saveToLocalStorage();
+        renderGroups();
+        showNotification(`${groupName} marks reduced`, "danger");
+      }
+    }
+
+    function deleteGroup(groupName) {
+      if (confirm(`Delete ${groupName}?`)) {
+        delete groups[groupName];
+        saveToLocalStorage();
+        renderGroups();
+      }
+    }
+
+    function renderGroups() {
+      const container = document.getElementById("groupContainer");
+      container.innerHTML = "";
+      const maxMarks = Math.max(...Object.values(groups), 0);
+
+      Object.entries(groups).forEach(([name, marks]) => {
+        const div = document.createElement("div");
+        div.className = "group";
+
+        if (marks === maxMarks && maxMarks !== 0) {
+          const king = document.createElement("div");
+          king.className = "king";
+          king.textContent = "👑";
+          div.appendChild(king);
+        }
+
+        div.innerHTML += `
+          <button class="delete-btn" onclick="deleteGroup('${name}')">&times;</button>
+          <h2>${name}</h2>
+          <p>Marks: <strong>${marks}</strong></p>
+          <button class="add-btn" onclick="increaseMarks('${name}')">+</button>
+          <button class="reduce-btn" onclick="decreaseMarks('${name}')">-</button>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    function startTimer(seconds) {
+      clearInterval(timerInterval);
+      let remaining = seconds;
+      const display = document.getElementById("timerDisplay");
+
+      timerInterval = setInterval(() => {
+        display.textContent = remaining;
+        if (remaining <= 10) {
+          display.classList.add("red");
+        } else {
+          display.classList.remove("red");
+        }
+
+        if (remaining <= 0) {
+          clearInterval(timerInterval);
+        }
+        remaining--;
+      }, 1000);
+    }
+
+    function resetTimer() {
+      clearInterval(timerInterval);
+      const display = document.getElementById("timerDisplay");
+      display.textContent = "00";
+      display.classList.remove("red");
+    }
+
+    renderGroups();
+  </script>
+</body>
+</html>
