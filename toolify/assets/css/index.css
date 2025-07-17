@@ -1,0 +1,63 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-size: 10px;
+    margin: 1rem;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.project-card{
+    position: relative;
+    background:linear-gradient(to bottom,rgb(245, 208, 208),rgb(86, 86, 248));
+    width: 15rem;
+    height: 15rem;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    padding:1rem
+}
+
+.project-card:hover{
+    background:linear-gradient(to bottom,rgb(241, 214, 214),rgb(113, 113, 219));
+    box-shadow: 0 0 5px rgb(77, 75, 75),0 0 7px rgb(77, 75, 75),0 0 10px rgb(77, 75, 75);
+    transition:all ease-in 0.3s;
+
+}
+
+.project-card-description{
+    font-size: 1rem;
+}
+
+.open-url{
+    background-color: black;
+    color: white;
+    padding: .5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    z-index: 99;
+    position:absolute;
+    bottom: 10px;
+}
+
+.open-url:hover{
+    box-shadow: 0 0 5px rgb(77, 75, 75),0 0 7px rgb(77, 75, 75),0 0 10px rgb(77, 75, 75);
+    padding: .5rem 1rem;
+    transition:all ease-out .2s;
+}
+
