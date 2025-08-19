@@ -1,0 +1,256 @@
+body {
+  margin: 0;
+  background: #1e1e1e;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  padding: 2rem;
+}
+
+.container {
+  background: #2c2c2c;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  width: fit-content;
+  position: relative;
+}
+
+.resize-handle {
+  width: 10px;
+  background: #444;
+  cursor: ew-resize;
+  position: absolute;
+  right: 0;
+  top: 20px;
+  height: calc(100% - 40px);
+}
+
+.header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.window-bar {
+  display: flex;
+  gap: 8px;
+}
+
+.window-bar span {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.red { background: #ff5f56; }
+.yellow { background: #ffbd2e; }
+.green { background: #27c93f; }
+
+#codeTitle {
+  flex: 1;
+  margin: 0 10px;
+  text-align: center;
+  background: transparent !important;
+  border: 1px solid #444;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 6px 10px;
+  border-radius: 4px;
+  outline: none;
+}
+
+#editorContainer {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+select, input[type="color"], button {
+  background: #444;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+select {
+  appearance: none;
+}
+
+button:hover {
+  background: #666;
+}
+
+.CodeMirror {
+  background: transparent !important;
+  color: #ffffff;
+  font-size: 14px;
+  padding-bottom: 40px !important;
+  height: auto;
+  max-height: 400px;
+  width: 600px;
+  font-family: Fira Code, monospace;
+}
+
+.CodeMirror-scroll {
+  overflow-x: hidden !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.CodeMirror-gutters {
+  background-color: transparent !important;
+  color: #888888 !important;
+  border: none !important;
+}
+
+.CodeMirror-placeholder {
+  color: rgba(255, 255, 255, 0.4) !important;
+  font-style: italic;
+}
+
+/* Custom QBASIC highlighting */
+.cm-keyword { color: #ffb86c; font-weight: bold; }
+.cm-number { color: #bd93f9; }
+.cm-string { color: #50fa7b; }
+.cm-variable { color: #f8f8f2; }
+.cm-comment { color: #6272a4; font-style: italic; }
+
+/* === Upgraded Controls Toolbar === */
+.controls {
+  margin-top: 1rem;
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  background: #2a2a2a;
+  padding: 12px 18px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* Base style for all controls */
+.controls select,
+.controls button,
+.color-picker-label {
+  background: #3a3a3a;
+  color: white;
+  border: 1px solid #555;
+  padding: 0.5rem 0.9rem;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease-in-out;
+  height: 38px;
+  font-family: inherit;
+}
+
+/* Hover effect */
+.controls select:hover,
+.controls button:hover,
+.color-picker-label:hover {
+  background: #505050;
+  border-color: #777;
+  transform: translateY(-1px);
+}
+
+/* Select dropdown custom arrow */
+.controls select {
+  appearance: none;
+  padding-right: 24px;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="white" height="12" viewBox="0 0 20 20"><path d="M5.516 7.547l4.484 4.484 4.484-4.484 1.516 1.516-6 6-6-6z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 12px;
+}
+
+/* Color Picker */
+.color-picker-label {
+  background: #3a3a3a;
+  border: 1px solid #555;
+  padding-left: 10px;
+  user-select: none;
+}
+.color-picker-label input[type="color"] {
+  border: none;
+  padding: 0;
+  background: none;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+}
+.color-picker-label input[type="color"]::-webkit-color-swatch {
+  border: none;
+  border-radius: 4px;
+}
+.color-picker-label input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+/* Action buttons */
+.controls button {
+  font-weight: bold;
+}
+.controls button#exportBtn {
+  background: #27ae60;
+  border-color: #1e8f50;
+}
+.controls button#exportBtn:hover {
+  background: #2ecc71;
+  border-color: #27ae60;
+}
+.controls button#copyBtn {
+  background: #2980b9;
+  border-color: #206694;
+}
+.controls button#copyBtn:hover {
+  background: #3498db;
+  border-color: #2980b9;
+}
+
+/* Responsive tweaks for controls */
+@media (max-width: 700px) {
+  .controls {
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px 10px;
+  }
+
+  .controls select,
+  .controls button,
+  .color-picker-label {
+    width: 100%;
+    max-width: 350px;
+    box-sizing: border-box;
+  }
+  
+  #editorContainer .CodeMirror {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+@media (max-width: 400px) {
+  #codeTitle {
+    font-size: 14px;
+    padding: 6px 8px;
+  }
+  
+  .controls select,
+  .controls button,
+  .color-picker-label {
+    font-size: 13px;
+    padding: 0.5rem 0.8rem;
+  }
+}

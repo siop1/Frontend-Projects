@@ -1,15 +1,15 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
     font-size: 10px;
     margin: 1rem;
 }
 
-main{
+main {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,11 +17,11 @@ main{
     gap: 1rem;
 }
 
-.project-card{
+.project-card {
     position: relative;
-    background:linear-gradient(to bottom,rgb(245, 208, 208),rgb(86, 86, 248));
-    width: 15rem;
-    height: 15rem;
+    background: linear-gradient(to bottom, rgb(245, 208, 208), rgb(86, 86, 248));
+    width: 18rem;
+    height: 18rem;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
@@ -29,21 +29,21 @@ main{
     align-items: center;
     text-align: center;
     gap: 1rem;
-    padding:1rem
+    padding: 1rem
 }
 
-.project-card:hover{
-    background:linear-gradient(to bottom,rgb(241, 214, 214),rgb(113, 113, 219));
-    box-shadow: 0 0 5px rgb(77, 75, 75),0 0 7px rgb(77, 75, 75),0 0 10px rgb(77, 75, 75);
-    transition:all ease-in 0.3s;
+.project-card:hover {
+    background: linear-gradient(to bottom, rgb(241, 214, 214), rgb(113, 113, 219));
+    box-shadow: 0 0 5px rgb(77, 75, 75), 0 0 7px rgb(77, 75, 75), 0 0 10px rgb(77, 75, 75);
+    transition: all ease-in 0.3s;
 
 }
 
-.project-card-description{
+.project-card-description {
     font-size: 1rem;
 }
 
-.open-url{
+.open-url {
     background-color: black;
     color: white;
     padding: .5rem 1rem;
@@ -51,13 +51,27 @@ main{
     text-decoration: none;
     font-weight: bold;
     z-index: 99;
-    position:absolute;
+    position: absolute;
     bottom: 10px;
 }
 
-.open-url:hover{
-    box-shadow: 0 0 5px rgb(77, 75, 75),0 0 7px rgb(77, 75, 75),0 0 10px rgb(77, 75, 75);
+.open-url:hover {
+    box-shadow: 0 0 5px rgb(77, 75, 75), 0 0 7px rgb(77, 75, 75), 0 0 10px rgb(77, 75, 75);
     padding: .5rem 1rem;
-    transition:all ease-out .2s;
+    transition: all ease-out .2s;
 }
 
+@media only screen and (max-width: 450px) {
+    .project-card {
+        width: 100%;
+    }
+
+    .project-card-description {
+        font-size: 0.95rem;
+    }
+
+    .open-url {
+        padding: .6rem 1.3rem;
+        font-size: 1rem;
+    }
+}

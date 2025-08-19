@@ -6,7 +6,7 @@
     },
     {
         "title":"Calculator",
-        "description":"Basic calculator to perform +,-,* and /",
+        "description":"Basic calculator to perform addition,subtraction,multiplication and division",
         "url":"Calculator"
     },
     {
@@ -23,5 +23,10 @@
         "title":"TO-DO List",
         "description":"Uses local storage to storage to-do list",
         "url":"TodoList"
+    },
+	{
+        "title":"Code Carbon",
+        "description":"Convert code into syntax highlighted image",
+        "url":"CodeCarbon"
     }
 ]

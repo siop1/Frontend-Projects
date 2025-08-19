@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Code Carbon</title>
+  <link rel="icon" type="image/png" href="images/favicon2.png">
+
+  <!-- CodeMirror CSS -->
+  <link rel="stylesheet" href="css/codemirror.min.css" />
+  <link rel="stylesheet" href="css/material.min.css" />
+  <!-- Your CSS file -->
+  <link rel="stylesheet" href="css/index.css" />
+
+
+</head>
+
+<body>
+
+  <h1>Code Carbon</h1>
+
+  <div class="container" id="capture">
+    <div class="header-bar">
+      <div class="window-bar">
+        <span class="red"></span>
+        <span class="yellow"></span>
+        <span class="green"></span>
+      </div>
+      <input id="codeTitle" type="text" placeholder="Untitled" />
+    </div>
+
+    <div id="editorContainer">
+      <textarea id="editor"></textarea>
+    </div>
+    <div class="resize-handle" id="resizeHandle"></div>
+  </div>
+
+  <div class="controls">
+    <label>Language:
+      <select id="language">
+        <option value="javascript">JavaScript</option>
+        <option value="python">Python</option>
+        <option value="htmlmixed">HTML</option>
+        <option value="css">CSS</option>
+        <option value="xml">XML</option>
+        <option value="qbasic-custom">QBASIC (Custom)</option>
+        <option value="text/x-basic">QBASIC (VB Mode)</option>
+        <option value="vb">Visual Basic</option>
+        <option value="text/x-csrc">C</option>
+        <option value="text/x-c++src">C++</option>
+        <option value="text/x-java">Java</option>
+        <option value="text/x-php">PHP</option>
+        <option value="text/x-ruby">Ruby</option>
+        <option value="text/x-sql">SQL</option>
+        <option value="markdown">Markdown</option>
+        <option value="shell">Shell</option>
+        <option value="yaml">YAML</option>
+        <option value="go">Go</option>
+        <option value="rust">Rust</option>
+      </select>
+    </label>
+
+    <label>Font:
+      <select id="font">
+        <option value="Fira Code">Fira Code</option>
+        <option value="Courier New">Courier New</option>
+        <option value="Source Code Pro">Source Code Pro</option>
+        <option value="Monaco">Monaco</option>
+        <option value="monospace">Monospace</option>
+      </select>
+    </label>
+
+    <label class="color-picker-label" title="Background Color">
+      🎨
+      <input type="color" id="bgColor" value="#2c2c2c" />
+    </label>
+
+    <button id="exportBtn">Export PNG</button>
+    <button id="copyBtn">Copy Image</button>
+  </div>
+
+  
+  <!-- CodeMirror core -->
+  <script src="js/codemirror.min.js"></script>
+  <script src="js/simple.min.js"></script>
+  <script src="js/placeholder.min.js"></script>
+
+  <!-- CodeMirror modes -->
+  <script src="js/javascript.min.js"></script>
+  <script src="js/python.min.js"></script>
+  <script src="js/htmlmixed.min.js"></script>
+  <script src="js/css.min.js"></script>
+  <script src="js/xml.min.js"></script>
+  <script src="js/vb.min.js"></script>
+  <script src="js/clike.min.js"></script>
+  <script src="js/php.min.js"></script>
+  <script src="js/ruby.min.js"></script>
+  <script src="js/sql.min.js"></script>
+  <script src="js/markdown.min.js"></script>
+  <script src="js/shell.min.js"></script>
+  <script src="js/yaml.min.js"></script>
+  <script src="js/go.min.js"></script>
+  <script src="js/rust.min.js"></script>
+  <script src="js/html-to-image.min.js"></script>
+
+
+  <script src="js/index.js"></script>
+</body>
+
+</html>
